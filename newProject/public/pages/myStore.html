@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="./dist/myStore.js" defer></script>
+    <link rel="stylesheet" href="./dist/myStoreStyle.css" />
+    <link rel="stylesheet" href="./dist/style.css" />
+    <title>my store</title>
+  </head>
+  <body>
+    <nav>
+      <div class="leftSide">
+        <a href="./pages/login.html">login</a>
+        <a href="./pages/login.html">logout</a>
+        <a href="./pages/register.html">register</a>
+      </div>
+      <div class="logo">
+        <img onclick="goHomePage()" src="../src/socialMarket.png" alt="" />
+      </div>
+      <div class="rightSide">
+        <a href="./pages/wishlist.html">wishlist</a>
+        <a href="./pages/wishlist.html">cart</a>
+        <a onclick="goMyStore()">my Store</a>
+      </div>
+    </nav>
+
+    <form class="myForm" onsubmit="handleAddProduct(event)">
+      <input type="url" name="imgUrl" placeholder="img-url" />
+      <input type="number" name="price" placeholder="price" />
+      <input type="text" name="title" placeholder="title" />
+      <input type="text" name="description" placeholder="description..." />
+      <button type="submit">add product to sale</button>
+    </form>
+
+    <button type="button" onclick="renderMyStore()">get by user</button>
+
+    <div class="storeGallery">
+      <div class="storeGallery__productDiv"></div>
+    </div>
+  </body>
+</html>

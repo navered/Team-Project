@@ -1,0 +1,11 @@
+.storeGallery {
+  &__productDiv {
+    input {
+      border: none;
+    }
+
+    img {
+      max-width: 140px;
+    }
+  }
+}
