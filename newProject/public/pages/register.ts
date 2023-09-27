@@ -6,7 +6,7 @@ async function handleAddUser(ev: any) {
 
     const user = { email, password };
     if (!user.email || !user.password) throw new Error("missing some details");
-    const response = await fetch("./API/users/register-user", {
+    const response = await fetch("../API/users/register-user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

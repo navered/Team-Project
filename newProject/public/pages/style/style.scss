@@ -1,0 +1,245 @@
+$font-family: 'Assistant', sans-serif;
+$font-size-heading: 3em;
+$font-size-sub-heading: 2.3em;
+$font-size-big-heading:2.2em;
+$font-size-text: 1.0em;
+$color-site-red: #FB2823;
+$color-site-black:#000000 ;
+$color-site-white: #ffff;
+* {
+    margin: 0;
+    padding: 0;
+  }
+ 
+
+.column1{
+  display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    background-image: url("top.jpg");
+    height:100vh;
+    width: 100vw;
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+
+    }
+  
+    
+.h1{
+    font-family:$font-family;
+    font-size: $font-size-heading;
+    color:$color-site-black;
+    text-align: center;
+    
+    
+
+}
+.h2, p{
+    font-family:$font-family;
+    font-size: $font-size-sub-heading;
+    color:$color-site-black;
+    text-align: center;
+    font-weight: 600;
+    margin: 20px  0px ;}
+.p{
+    
+    font-size: $font-size-text;
+   
+    
+
+}
+.allheader {
+    background-color:$color-site-white;
+    position: sticky;
+        top: 0;
+        offset: 10px; ;
+        
+  }
+  
+  .header {
+    background-color: $color-site-white;
+    display: flex;
+    justify-content: center;
+    padding-right: 17%;
+    align-items: center;
+    max-width: 100vw;
+    height: 11vh;
+    
+  }
+  
+  .logo {
+    width: 250px;
+    height: 20vh;
+  }
+
+  
+  .nav {
+    display: flex;
+    font-family: $font-family;
+    align-items: center;
+  }
+  
+  .nav a {
+    color: $color-site-black;
+    text-decoration: none;
+    margin: 0 10px;
+    padding-left: 25px;
+  }
+  .nav a:hover {
+    color: $color-site-red;
+    text-decoration: underline solid 1px $color-site-black;
+  }
+  
+  
+  .user {
+    width: 20px;
+    height: 20px;
+    margin-left: 280px;
+    fill: rgb(0, 0, 0);
+    align-items: center;
+
+  }
+  
+  .menu-button {
+    display: none;
+    cursor: pointer;
+  }
+  
+
+  
+  .popup ul {
+    text-align: right;
+    padding: 15px 30px;
+    border: 1px solid $color-site-black;
+  }
+  
+  .popup li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid $color-site-black;
+  }
+  .popup a:hover {
+    color: $color-site-black;;
+  }
+  
+  .popup a {
+    color: $color-site-black;
+    text-decoration: none;
+    color: $color-site-black;
+    font-family:  $font-family;
+    text-align: center;
+    font-size: 22px;
+  }
+  
+  .show-popup {
+    display: block;
+  }
+  
+  @media (max-width: 767px) {
+   /* סגנון עבור התפריט בגרסת טלפון */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-site-white; /* צבע רקע תפריט */
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* כדי שהתפריט יהיה מעל תוכן הדף */
+}
+
+/* סגנון ללוגו */
+
+  .logo {
+    max-width: 100vw;
+    height: 15vh;
+}
+
+/* סגנון לאייקון התפריט */
+.menu-button {
+  display: flex;
+  max-width: 50px;
+  font-size: 24px;
+  color: $color-site-white; /* צבע האייקון */
+  cursor: pointer; /* לשנות סמל העכבר ליד האייקון למצב "יד נקניקה" */
+}
+
+/* סגנון לתפריט הנפתח */
+.nav {
+  display: none;
+  flex-direction: column;
+  background-color: $color-site-red; /* צבע רקע תפריט נפתח */
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* סגנון לקישורי התפריט בתפריט הנפתח */
+.nav a {
+  color: $color-site-white; /* צבע טקסט קישורי התפריט */
+  text-decoration: none;
+  padding: 10px;
+  text-align: center;
+}
+
+/* סגנון לקישורי התפריט בתפריט הנפתח בעת העברה */
+.nav a:hover {
+  background-color: darken($color-site-red, 10%); /* צבע רקע קישורי התפריט בעת העברה */
+}
+
+/* סגנון לתפריט הנפתח בעת הצגתו */
+.menu-button[active="true"] + .nav {
+  display: flex;
+  width: 20px;
+    height: 20px;
+}
+.user {
+  
+  margin-left: 0px;
+  width: 40px;
+  height: 40px;
+  
+
+}
+.userMenu{
+  width: 20px;
+  height: 20px;
+}
+.h1 {
+  font-size: 2.0em;
+  margin: -68vh 120px 0px 0px;
+  text-align: right;
+}
+.h2, p {
+  font-family: "Assistant", sans-serif;
+  font-size: 1.3em;
+  color: #000000;
+  text-align: right;
+  font-weight: 500;
+  margin: 0vh 125px 0px 20px;
+}
+.btns {
+  
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 40vw
+}
+.popup {
+  margin-right: 20vw;
+  margin-top: 15vh;
+  position: fixed;
+  width: 80vw;
+  padding-top: 0vh;
+  background-color: #ffff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 9999;
+}
+.button {
+  margin-top: 2vh
+}
+  }
+  
+  

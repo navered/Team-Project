@@ -1,7 +1,45 @@
 function goMyStore() {
   window.location.href = `./pages/myStore.html?email=${getUserEmailByQuery()}`;
 }
+function toggleMenu() {
+  const popup = document.querySelector("#popup") as HTMLDivElement;
+  renderpopUpMenu(popup);
+}
 
+function renderpopUpMenu(rootElement: HTMLElement | null) {
+  try {
+    const menu_button = document.querySelector(
+      ".menu-button"
+    ) as HTMLImageElement;
+
+    let html = "";
+
+    if (menu_button.getAttribute("active") == "false") {
+      html = `
+        <ul dir="rtl" id="popupList">
+        <li><a href="./index.html">עמוד הבית</a></li>
+        <li>  <a href="./pages/aboutUs.html"> אודות</a></li>
+        <li> <a href="./pages/myStore.html"> החנות שלי</a></li>
+        <li>  <a href="./pages/wishList.html">רשימת המשאלות </a></li>
+        <li>  <a href="./pages/contactUs.html">יצירת קשר</a></li>
+        <li> <a href="./pages/register.html">
+          <img class="userMenu" src="./imgs/user.svg" alt="">התחברות
+        </a></li>
+      </ul>
+           `;
+      menu_button.setAttribute("active", "true"); //chenge the attribute to "true"
+    } else {
+      html = "";
+      menu_button.setAttribute("active", "false");
+    }
+
+    if (!rootElement) throw new Error("No root element");
+
+    rootElement.innerHTML = html;
+  } catch (error) {
+    console.error(error);
+  }
+}
 function getUserEmailByQuery() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get("email");

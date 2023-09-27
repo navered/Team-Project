@@ -3,30 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./dist/style.css" />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./pages/style/dist/style.css" />
+    <link rel="stylesheet" href="./pages/style/dist/navStyle.css" />
     <script src="./dist/index.js" defer></script>
 
-    <title>Document</title>
+    <title>index_market_place</title>
   </head>
-  <body onload="getFid()">
-    <nav>
-      <div class="leftSide">
-        <a href="./pages/login.html">login</a>
-        <a href="./pages/login.html">logout</a>
-        <a href="./pages/register.html">register</a>
-      </div>
-      <div class="logo">
-        <img src="./src/socialMarket.png" alt="" />
-      </div>
-      <div class="rightSide">
-        <a href="./pages/wishlist.html">wishlist</a>
-        <a href="./pages/wishlist.html">cart</a>
-        <a onclick="goMyStore()">my Store</a>
-      </div>
-    </nav>
+  <body dir="rtl" onload="getFid()">
+    <div class="allheader"> 
+      <div  class="header">
+        <img class="logo" src="./src/socialMarket.png">
+        <img class="menu-button" src="./imgs/more.svg" active="false" onclick="toggleMenu()">
+         <nav class="nav" id="nav">
+          
+          <a href="./index.html">עמוד הבית</a>
+           <a href="./pages/aboutUs.html"> אודות</a>
+           <a href="./pages/myStore.html"> החנות שלי</a>
+           <a href="./pages/wishList.html">רשימת המשאלות </a>
+           <a href="./pages/contactUs.html">יצירת קשר</a>
+        
+        </nav>
+        
+        <a href="./pages/register.html"> 
+          <img class="user" src="./imgs/user.svg" alt=""> 
+        </a>
+     
+  
+     
+    </div>
+  </div>
+  <div class="popup" id="popup">
+  </div>
 
     <div class="wrapper">
       <div class="fid"></div>

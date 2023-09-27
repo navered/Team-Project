@@ -37,6 +37,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 function goMyStore() {
     window.location.href = "./pages/myStore.html?email=" + getUserEmailByQuery();
 }
+function toggleMenu() {
+    var popup = document.querySelector("#popup");
+    renderpopUpMenu(popup);
+}
+function renderpopUpMenu(rootElement) {
+    try {
+        var menu_button = document.querySelector(".menu-button");
+        var html = "";
+        if (menu_button.getAttribute("active") == "false") {
+            html = "\n        <ul dir=\"rtl\" id=\"popupList\">\n        <li><a href=\"./index.html\">\u05E2\u05DE\u05D5\u05D3 \u05D4\u05D1\u05D9\u05EA</a></li>\n        <li>  <a href=\"./pages/aboutUs.html\"> \u05D0\u05D5\u05D3\u05D5\u05EA</a></li>\n        <li> <a href=\"./pages/myStore.html\"> \u05D4\u05D7\u05E0\u05D5\u05EA \u05E9\u05DC\u05D9</a></li>\n        <li>  <a href=\"./pages/wishList.html\">\u05E8\u05E9\u05D9\u05DE\u05EA \u05D4\u05DE\u05E9\u05D0\u05DC\u05D5\u05EA </a></li>\n        <li>  <a href=\"./pages/contactUs.html\">\u05D9\u05E6\u05D9\u05E8\u05EA \u05E7\u05E9\u05E8</a></li>\n        <li> <a href=\"./pages/register.html\">\n          <img class=\"userMenu\" src=\"./imgs/user.svg\" alt=\"\">\u05D4\u05EA\u05D7\u05D1\u05E8\u05D5\u05EA\n        </a></li>\n      </ul>\n           ";
+            menu_button.setAttribute("active", "true"); //chenge the attribute to "true"
+        }
+        else {
+            html = "";
+            menu_button.setAttribute("active", "false");
+        }
+        if (!rootElement)
+            throw new Error("No root element");
+        rootElement.innerHTML = html;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
 function getUserEmailByQuery() {
     var urlParams = new URLSearchParams(window.location.search);
     return urlParams.get("email");

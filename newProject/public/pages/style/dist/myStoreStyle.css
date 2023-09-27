@@ -1,0 +1,6 @@
+.storeGallery__productDiv input {
+  border: none;
+}
+.storeGallery__productDiv img {
+  max-width: 140px;
+}
