@@ -1,25 +1,24 @@
-async function handleRegister(event) {
+async function handleAddUser(ev: any) {
   try {
-    event.preventDefault();
-    const email = event.target.email.value.toLowerCase();
-    const password = event.target.password.value;
-    const postInit = {
+    ev.preventDefault();
+    const email = ev.target.email.value;
+    const password = ev.target.password.value;
+
+    const user = { email, password };
+    if (!user.email || !user.password) throw new Error("missing some details");
+    const response = await fetch("API/users/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password }),
-    };
+      body: JSON.stringify(user),
+    });
+    const data = await response.json();
 
-    const response = await fetch("/API/users/register", postInit);
-    const { error } = await response.json(); // get data from server
-    console.log(error);
-    if (error) {
-      alert(error.message);
-      throw new Error(error);
-    }
-    window.location.href = "./login.html";
+    console.log(data);
+    // go to Log in page
+    window.location.href = `./login.html`;
   } catch (error) {
-    console.error(error.message);
+    console.error(error);
   }
 }

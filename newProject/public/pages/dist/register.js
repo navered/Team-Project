@@ -34,39 +34,38 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function handleRegister(event) {
+function handleAddUser(ev) {
     return __awaiter(this, void 0, void 0, function () {
-        var email, password, postInit, response, error, error_1;
+        var email, password, user, response, data, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     _a.trys.push([0, 3, , 4]);
-                    event.preventDefault();
-                    email = event.target.email.value.toLowerCase();
-                    password = event.target.password.value;
-                    postInit = {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-                        body: JSON.stringify({ email: email, password: password })
-                    };
-                    return [4 /*yield*/, fetch("/API/users/register", postInit)];
+                    ev.preventDefault();
+                    email = ev.target.email.value;
+                    password = ev.target.password.value;
+                    user = { email: email, password: password };
+                    if (!user.email || !user.password)
+                        throw new Error("missing some details");
+                    return [4 /*yield*/, fetch("API/users/register", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify(user)
+                        })];
                 case 1:
                     response = _a.sent();
                     return [4 /*yield*/, response.json()];
                 case 2:
-                    error = (_a.sent()).error;
-                    console.log(error);
-                    if (error) {
-                        alert(error.message);
-                        throw new Error(error);
-                    }
+                    data = _a.sent();
+                    console.log(data);
+                    // go to Log in page
                     window.location.href = "./login.html";
                     return [3 /*break*/, 4];
                 case 3:
                     error_1 = _a.sent();
-                    console.error(error_1.message);
+                    console.error(error_1);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }

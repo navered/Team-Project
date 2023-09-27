@@ -39,7 +39,7 @@ exports.__esModule = true;
 exports.addProductToWishList = exports.addProductToCart = exports.getAllProducts = exports.deleteProduct = exports.updateProductInfo = exports.getProductByOwnerEmail = exports.createProduct = void 0;
 var console_1 = require("console");
 var productsModel_1 = require("./productsModel");
-var usersModel_1 = require("../users/usersModel");
+var usersModel_1 = require("./usersModel");
 function createProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
         var _a, newProd, userEmail, findOwner, product, productDB, error_1;
@@ -49,7 +49,7 @@ function createProduct(req, res) {
                     _b.trys.push([0, 3, , 4]);
                     _a = req.body, newProd = _a.newProd, userEmail = _a.userEmail;
                     console_1.log(newProd, userEmail);
-                    return [4 /*yield*/, usersModel_1["default"].findOne({ email: userEmail })];
+                    return [4 /*yield*/, usersModel_1.UserModel.findOne({ email: userEmail })];
                 case 1:
                     findOwner = _b.sent();
                     if (!findOwner)

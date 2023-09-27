@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="./dist/register.js" defer></script>
-    <link rel="stylesheet" href="./dist/login.css" />
-    <title>Register</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <h1>Register</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./dist/SignUp.js"></script>
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>register</h1>
+    <a href="../index.html">Back to Index</a>
+    
+    <form id="SingUpForm" onsubmit="handleAddUser(event)">
+        
+        <input type="text" name="email" id="email" required>
+        <input type="password" name="password" id="password" required>
+        <button type="submit">Sing Up</button>
 
-      <form onsubmit="handleRegister(event)">
-        <input name="email" type="text" placeholder="email:" /><br />
-        <input name="password" type="password" placeholder="password" /><br />
-        <button type="submit">register</button>
-      </form>
-    </div>
-  </body>
+        
+    </form> 
+</body>
 </html>

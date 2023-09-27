@@ -59,7 +59,7 @@ function handleLogin(event) {
                     _a = _b.sent(), error = _a.error, ok = _a.ok;
                     console.log(error);
                     if (ok)
-                        window.location.href = "/index.html?email=" + email;
+                        window.location.href = "../index.html?email=" + email;
                     if (error) {
                         throw new Error(error);
                     }

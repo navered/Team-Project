@@ -1,6 +1,6 @@
 import { log } from "console";
 import ProductModel from "./productsModel";
-import UserModel from "../users/usersModel";
+import   {  UserModel }  from "../users/usersModel";
 
 export async function createProduct(req, res) {
   try {

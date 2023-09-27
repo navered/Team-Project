@@ -36,71 +36,108 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.register = exports.login = void 0;
-var console_1 = require("console");
+exports.getUsers = exports.login = exports.registerUser = void 0;
 var usersModel_1 = require("./usersModel");
-function login(req, res) {
+var bcrypt = require('bcrypt');
+var jwt = require('jwt-simple');
+var SECRET = process.env.SECRET;
+var secret = SECRET;
+var saltRounds = 10;
+//register user 
+exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, email, password, hash, user, userDB, error_1;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, email = _a.email, password = _a.password;
+                if (!email || !password)
+                    throw new Error("Please complete all fields");
+                return [4 /*yield*/, bcrypt.hash(password, saltRounds)];
+            case 1:
+                hash = _b.sent();
+                user = new usersModel_1.UserModel({ email: email, password: hash });
+                return [4 /*yield*/, user.save()];
+            case 2:
+                userDB = _b.sent();
+                console.log(userDB);
+                //check if user already exist
+                // const userExist = users.find((user) => user.email === email);
+                // if (userExist) throw new Error("User already exist");
+                // users.push(user);
+                res.send({ ok: true, userDB: userDB });
+                return [3 /*break*/, 4];
+            case 3:
+                error_1 = _b.sent();
+                console.error(error_1);
+                res.send({ error: error_1.message });
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, email, password, userDB, hash, match, cookie, token, error_2;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, email = _a.email, password = _a.password;
+                if (!email || !password)
+                    throw new Error("Please complete all fields");
+                return [4 /*yield*/, usersModel_1.UserModel.findOne({ email: email })];
+            case 1:
+                userDB = _b.sent();
+                if (!userDB)
+                    throw new Error("some of the details are incorrect");
+                hash = userDB.password;
+                //  { password} = user;
+                //  const hash = password;
+                if (!hash)
+                    throw new Error("some of the details are incorrect");
+                return [4 /*yield*/, bcrypt.compare(password, hash)];
+            case 2:
+                match = _b.sent();
+                if (!match)
+                    throw new Error("some of the details are incorrect");
+                cookie = {
+                    uid: userDB._id,
+                    role: userDB.role || "user"
+                };
+                token = jwt.encode(cookie, secret);
+                console.log(token);
+                res.cookie("user", token, { httpOnly: true, maxAge: 1000 * 60 * 60 * 24 });
+                res.send({ ok: true });
+                return [3 /*break*/, 4];
+            case 3:
+                error_2 = _b.sent();
+                console.error(error_2);
+                res.status(401).send({ error: error_2.message });
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+function getUsers(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, user, error_1;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
+        var users_1, error_3;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
                 case 0:
-                    _b.trys.push([0, 2, , 3]);
-                    _a = req.body, email = _a.email, password = _a.password;
-                    if (!email || !password)
-                        throw new Error("some of the parameters not valid");
-                    return [4 /*yield*/, usersModel_1["default"].find({ email: email, password: password })];
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, usersModel_1.UserModel.find()];
                 case 1:
-                    user = _b.sent();
-                    if (!user)
-                        throw new Error("Incorrect email or password");
-                    res.send({ user: user, ok: true });
-                    console_1.log(email + " ! ! ! -- LOGIN SUCCESSFUL ! ! !");
+                    users_1 = _a.sent();
+                    res.send({ ok: true, users: users_1 });
                     return [3 /*break*/, 3];
                 case 2:
-                    error_1 = _b.sent();
-                    console.error(error_1.message);
+                    error_3 = _a.sent();
+                    console.error(error_3);
+                    res.send({ error: error_3.message });
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
         });
     });
 }
-exports.login = login;
-function register(req, res) {
-    return __awaiter(this, void 0, void 0, function () {
-        var _a, email, password, newUser, userDB, error_2, _b, _c;
-        return __generator(this, function (_d) {
-            switch (_d.label) {
-                case 0:
-                    _d.trys.push([0, 4, , 6]);
-                    _a = req.body, email = _a.email, password = _a.password;
-                    if (!email || !password)
-                        throw new Error("invalid email or password");
-                    return [4 /*yield*/, usersModel_1["default"].findOne({ email: email })];
-                case 1:
-                    if (_d.sent())
-                        throw new Error("this email already used");
-                    return [4 /*yield*/, new usersModel_1["default"]({ email: email, password: password })];
-                case 2:
-                    newUser = _d.sent();
-                    return [4 /*yield*/, newUser.save()];
-                case 3:
-                    userDB = _d.sent();
-                    res.send({ success: true });
-                    console_1.log(newUser.email + " ! ! ! -- REGISTER SUCCESSFUL -- ! ! !");
-                    return [3 /*break*/, 6];
-                case 4:
-                    error_2 = _d.sent();
-                    _c = (_b = console).log;
-                    return [4 /*yield*/, usersModel_1["default"].find({})];
-                case 5:
-                    _c.apply(_b, [_d.sent()]);
-                    console.error(error_2.message);
-                    return [3 /*break*/, 6];
-                case 6: return [2 /*return*/];
-            }
-        });
-    });
-}
-exports.register = register;
+exports.getUsers = getUsers;
