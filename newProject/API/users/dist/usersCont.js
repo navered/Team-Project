@@ -45,20 +45,26 @@ var secret = SECRET;
 var saltRounds = 10;
 //register user 
 exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password, hash, user, userDB, error_1;
+    var _a, email, password, hash, existingUser, user, userDB, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 3, , 4]);
+                _b.trys.push([0, 4, , 5]);
                 _a = req.body, email = _a.email, password = _a.password;
                 if (!email || !password)
                     throw new Error("Please complete all fields");
                 return [4 /*yield*/, bcrypt.hash(password, saltRounds)];
             case 1:
                 hash = _b.sent();
+                return [4 /*yield*/, usersModel_1.UserModel.findOne({ email: email }).exec()];
+            case 2:
+                existingUser = _b.sent();
+                if (existingUser) {
+                    return [2 /*return*/, res.status(400).json({ error: "User with this email already exists." })];
+                }
                 user = new usersModel_1.UserModel({ email: email, password: hash });
                 return [4 /*yield*/, user.save()];
-            case 2:
+            case 3:
                 userDB = _b.sent();
                 console.log(userDB);
                 //check if user already exist
@@ -66,13 +72,13 @@ exports.registerUser = function (req, res) { return __awaiter(void 0, void 0, vo
                 // if (userExist) throw new Error("User already exist");
                 // users.push(user);
                 res.send({ ok: true, userDB: userDB });
-                return [3 /*break*/, 4];
-            case 3:
+                return [3 /*break*/, 5];
+            case 4:
                 error_1 = _b.sent();
                 console.error(error_1);
                 res.send({ error: error_1.message });
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };

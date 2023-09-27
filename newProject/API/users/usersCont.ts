@@ -17,6 +17,12 @@ export const registerUser = async (req: any, res: any) => {
 
     //encrypt password with bcrypt.js
     const hash = await bcrypt.hash(password, saltRounds);
+    
+    // Check if a user with the same email already exists
+    const existingUser = await UserModel.findOne({ email }).exec();
+    if (existingUser) {
+      return res.status(400).json({ error: "User with this email already exists." });
+    }
 
     const user = new UserModel({ email, password: hash });
     const userDB = await user.save();

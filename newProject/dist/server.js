@@ -25,6 +25,8 @@ const usersRoutes_1 = __importDefault(require("./API/users/usersRoutes"));
 app.use("/API/users", usersRoutes_1.default);
 const productsRoutes_1 = __importDefault(require("./API/products/productsRoutes"));
 app.use("/API/products", productsRoutes_1.default);
+// import orderRouter from "./API/orders/ordersRoutes";
+// app.use("/API/orders", orderRouter);
 app.listen(port, () => {
     console.log(`App listening on PORT:  ${port}`);
 });
