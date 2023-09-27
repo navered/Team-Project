@@ -47,7 +47,7 @@ function handleAddUser(ev) {
                     user = { email: email, password: password };
                     if (!user.email || !user.password)
                         throw new Error("missing some details");
-                    return [4 /*yield*/, fetch("API/users/register", {
+                    return [4 /*yield*/, fetch("./API/users/register-user", {
                             method: "POST",
                             headers: {
                                 "Content-Type": "application/json"
