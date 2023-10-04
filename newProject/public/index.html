@@ -6,37 +6,83 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="./pages/style/dist/style.css" />
     <link rel="stylesheet" href="./pages/style/dist/navStyle.css" />
+    <link rel="stylesheet" href="./pages/style/dist/styleIndex.css" />
+
     <script src="./dist/index.js" defer></script>
 
     <title>index_market_place</title>
   </head>
   <body dir="rtl" onload="getFid()">
-    <div class="allheader"> 
-      <div  class="header">
-        <img class="logo" src="./src/socialMarket.png">
-        <img class="menu-button" src="./imgs/more.svg" active="false" onclick="toggleMenu()">
-         <nav class="nav" id="nav">
-          
-          <a href="./index.html">עמוד הבית</a>
-           <a href="./pages/aboutUs.html"> אודות</a>
-           <a href="./pages/myStore.html"> החנות שלי</a>
-           <a href="./pages/wishList.html">רשימת המועדפים </a>
-           <a href="./pages/contactUs.html">יצירת קשר</a>
-        
-        </nav>
-        
-        <a href="./pages/register.html"> 
-          <img class="user" src="./imgs/user.svg" alt=""> 
+    <div class="header">
+      <img class="logo" src="./src/download.png">
+      <img class="menu-button" src="./imgs/more.svg" active="false" onclick="toggleMenu()">
+      <nav class="nav" id="nav">
+        <a href="./index.html">דף הבית</a>
+        <a href="./pages/aboutUs.html">אודות</a>
+        <a href="./pages/myStore.html">החנות שלי</a>
+        <a dir="rtl" href="./pages/contactUs.html">
+          <img dir="rtl" src="./imgs/call.svg" alt="" class="icon">
+          צור קשר
         </a>
-     
+        <a href="./pages/wishList.html"> <img src="./imgs/wishlist.svg" alt="" class="icon">
+             המועדפים שלי</a>
+      
+        <a dir="rtl" href="./pages/cart.html">
+          <img dir="rtl" src="./imgs/cart.svg" alt="" class="icon">
+          סל הקניות שלי 
+        </a>
+      </nav>
   
-     
+      <a href="./pages/register.html">
+        <img class="user" src="./imgs/user.svg" alt="">
+      </a>
+      
+      
+  
+      <form class="search-form">
+        <input type="text" placeholder="חיפוש...">
+        <button type="submit">
+          <img src="./imgs/search.svg" alt="" class="icon">
+        </button>
+      </form>
     </div>
-  </div>
-  <div class="popup" id="popup">
-  </div>
+  
+    <div class="popup" id="popup">
+    </div>
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="src/reusable-shopping-bags-with-organic-eco-vegetables-4JFRQRP-1.jpg" class="img_slider">
+        <div class="text">Caption Text</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="src/organic-farmer-checking-his-tomatoes-in-a-hothouse-VQV2RVE.png" class="img_slider">
+        <div class="text">Caption Two</div>
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="src/pexels-yaroslav-shuraev-8844888.jpg" class="img_slider">
+        <div class="text">Caption Three</div>
+      </div>
+      
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+      
+      </div>
+      <br>
+      
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
 
     <div class="wrapper">
       <div class="fid"></div>

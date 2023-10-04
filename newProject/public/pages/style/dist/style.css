@@ -4,28 +4,17 @@
   padding: 0;
 }
 
-.column1 {
-  display: table-cell;
-  vertical-align: middle;
-  text-align: center;
-  background-image: url("top.jpg");
-  height: 100vh;
-  width: 100vw;
-  background-repeat: no-repeat, repeat;
-  background-size: cover;
-}
-
 .h1 {
   font-family: "Assistant", sans-serif;
   font-size: 3em;
-  color: #000000;
+  color: #1e3e20;
   text-align: center;
 }
 
 .h2, p {
   font-family: "Assistant", sans-serif;
   font-size: 2.3em;
-  color: #000000;
+  color: #1e3e20;
   text-align: center;
   font-weight: 600;
   margin: 20px 0px;
@@ -36,25 +25,25 @@
 }
 
 .allheader {
-  background-color: #ffff;
+  background-color: #B3D489;
   position: sticky;
   top: 0;
   offset: 10px;
 }
 
 .header {
-  background-color: #ffff;
+  background-color: #B3D489;
   display: flex;
   justify-content: center;
-  padding-right: 17%;
   align-items: center;
-  max-width: 100vw;
-  height: 11vh;
+  max-width: 99vw;
+  height: 14vh;
 }
 
 .logo {
-  width: 250px;
-  height: 20vh;
+  width: 130px;
+  height: 14vh;
+  padding: 20px;
 }
 
 .nav {
@@ -64,23 +53,30 @@
 }
 
 .nav a {
-  color: #000000;
+  color: #1e3e20;
   text-decoration: none;
   margin: 0 10px;
-  padding-left: 25px;
+  padding-left: 15px;
+  font-weight: 600;
+  font-size: 1em;
 }
 
 .nav a:hover {
-  color: #FB2823;
-  text-decoration: underline solid 1px #000000;
+  color: #1e3e20;
+  text-decoration: underline solid 1px #1e3e20;
 }
 
 .user {
   width: 20px;
   height: 20px;
   margin-left: 280px;
-  fill: black;
+  fill: white;
   align-items: center;
+}
+
+.icon {
+  height: 20px;
+  width: 20px;
 }
 
 .menu-button {
@@ -91,22 +87,22 @@
 .popup ul {
   text-align: right;
   padding: 15px 30px;
-  border: 1px solid #000000;
+  border: 1px solid #1e3e20;
 }
 
 .popup li {
   margin-bottom: 10px;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #1e3e20;
 }
 
 .popup a:hover {
-  color: #000000;
+  color: #1e3e20;
 }
 
 .popup a {
-  color: #000000;
+  color: #1e3e20;
   text-decoration: none;
-  color: #000000;
+  color: #1e3e20;
   font-family: "Assistant", sans-serif;
   text-align: center;
   font-size: 22px;
@@ -116,13 +112,28 @@
   display: block;
 }
 
+.search-form input[type=text] {
+  width: 10vw;
+  padding: 5px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 100px;
+}
+.search-form button[type=submit] {
+  padding: 3px 5px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 100px;
+  background-color: #eedb14;
+}
+
 @media (max-width: 767px) {
   /* סגנון עבור התפריט בגרסת טלפון */
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ffff;
+    background-color: #B3D489;
     /* צבע רקע תפריט */
     padding: 10px 20px;
     position: fixed;
@@ -144,7 +155,7 @@
     display: flex;
     max-width: 50px;
     font-size: 24px;
-    color: #ffff;
+    color: #B3D489;
     /* צבע האייקון */
     cursor: pointer;
     /* לשנות סמל העכבר ליד האייקון למצב "יד נקניקה" */
@@ -154,7 +165,7 @@
   .nav {
     display: none;
     flex-direction: column;
-    background-color: #FB2823;
+    background-color: #eedb14;
     /* צבע רקע תפריט נפתח */
     position: absolute;
     top: 50px;
@@ -165,7 +176,7 @@
 
   /* סגנון לקישורי התפריט בתפריט הנפתח */
   .nav a {
-    color: #ffff;
+    color: #B3D489;
     /* צבע טקסט קישורי התפריט */
     text-decoration: none;
     padding: 10px;
@@ -174,15 +185,15 @@
 
   /* סגנון לקישורי התפריט בתפריט הנפתח בעת העברה */
   .nav a:hover {
-    background-color: #e70904;
+    background-color: #c1b10e;
     /* צבע רקע קישורי התפריט בעת העברה */
   }
 
   /* סגנון לתפריט הנפתח בעת הצגתו */
-  .menu-button[active=true] + .nav {
+  .menu-button[active=true] {
     display: flex;
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
   }
 
   .user {
@@ -230,5 +241,10 @@
 
   .button {
     margin-top: 2vh;
+  }
+
+  .search-form {
+    display: flex;
+    width: 100vw;
   }
 }

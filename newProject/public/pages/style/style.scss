@@ -3,26 +3,17 @@ $font-size-heading: 3em;
 $font-size-sub-heading: 2.3em;
 $font-size-big-heading:2.2em;
 $font-size-text: 1.0em;
-$color-site-red: #FB2823;
-$color-site-black:#000000 ;
-$color-site-white: #ffff;
+$color-site-yellow: #eedb14;
+$color-site-black:#1e3e20 ;
+$color-site-light-green: #B3D489;
+$color-site-light-white: #ffff;
+
 * {
     margin: 0;
     padding: 0;
   }
  
-
-.column1{
-  display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    background-image: url("top.jpg");
-    height:100vh;
-    width: 100vw;
-    background-repeat: no-repeat, repeat;
-    background-size: cover;
-
-    }
+   
   
     
 .h1{
@@ -49,7 +40,8 @@ $color-site-white: #ffff;
 
 }
 .allheader {
-    background-color:$color-site-white;
+    background-color:$color-site-light-green
+  ;
     position: sticky;
         top: 0;
         offset: 10px; ;
@@ -57,19 +49,20 @@ $color-site-white: #ffff;
   }
   
   .header {
-    background-color: $color-site-white;
+    background-color: $color-site-light-green
+  ;
     display: flex;
     justify-content: center;
-    padding-right: 17%;
     align-items: center;
-    max-width: 100vw;
-    height: 11vh;
+    max-width: 99vw;
+    height: 14vh;
     
   }
   
   .logo {
-    width: 250px;
-    height: 20vh;
+    width: 130px;
+    height: 14vh;
+    padding: 20px;
   }
 
   
@@ -80,13 +73,15 @@ $color-site-white: #ffff;
   }
   
   .nav a {
-    color: $color-site-black;
+    color:$color-site-black;
     text-decoration: none;
     margin: 0 10px;
-    padding-left: 25px;
+    padding-left: 15px;
+    font-weight:600 ;
+    font-size: $font-size-text;
   }
   .nav a:hover {
-    color: $color-site-red;
+    color: $color-site-black;
     text-decoration: underline solid 1px $color-site-black;
   }
   
@@ -95,11 +90,14 @@ $color-site-white: #ffff;
     width: 20px;
     height: 20px;
     margin-left: 280px;
-    fill: rgb(0, 0, 0);
+    fill: rgb(255, 255, 255);
     align-items: center;
 
   }
-  
+  .icon{
+    height: 20px;
+    width: 20px;
+  }
   .menu-button {
     display: none;
     cursor: pointer;
@@ -133,6 +131,25 @@ $color-site-white: #ffff;
   .show-popup {
     display: block;
   }
+.search-form{
+  input[type="text"] {
+    width: 10vw;
+   padding: 5px;
+   margin-left: 5px;
+   border: none;
+   border-radius: 100px;
+  }
+  button[type="submit"]{
+    padding: 3px 5px;
+   margin-left: 5px;
+   border: none;
+   border-radius: 100px;
+   background-color: $color-site-yellow;
+   }   
+}
+
+
+  
   
   @media (max-width: 767px) {
    /* סגנון עבור התפריט בגרסת טלפון */
@@ -140,7 +157,8 @@ $color-site-white: #ffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: $color-site-white; /* צבע רקע תפריט */
+  background-color: $color-site-light-green
+; /* צבע רקע תפריט */
   padding: 10px 20px;
   position: fixed;
   top: 0;
@@ -161,7 +179,8 @@ $color-site-white: #ffff;
   display: flex;
   max-width: 50px;
   font-size: 24px;
-  color: $color-site-white; /* צבע האייקון */
+  color: $color-site-light-green
+; /* צבע האייקון */
   cursor: pointer; /* לשנות סמל העכבר ליד האייקון למצב "יד נקניקה" */
 }
 
@@ -169,7 +188,7 @@ $color-site-white: #ffff;
 .nav {
   display: none;
   flex-direction: column;
-  background-color: $color-site-red; /* צבע רקע תפריט נפתח */
+  background-color: $color-site-yellow; /* צבע רקע תפריט נפתח */
   position: absolute;
   top: 50px;
   left: 0;
@@ -179,7 +198,8 @@ $color-site-white: #ffff;
 
 /* סגנון לקישורי התפריט בתפריט הנפתח */
 .nav a {
-  color: $color-site-white; /* צבע טקסט קישורי התפריט */
+  color: $color-site-light-green
+; /* צבע טקסט קישורי התפריט */
   text-decoration: none;
   padding: 10px;
   text-align: center;
@@ -187,14 +207,14 @@ $color-site-white: #ffff;
 
 /* סגנון לקישורי התפריט בתפריט הנפתח בעת העברה */
 .nav a:hover {
-  background-color: darken($color-site-red, 10%); /* צבע רקע קישורי התפריט בעת העברה */
+  background-color: darken($color-site-yellow, 10%); /* צבע רקע קישורי התפריט בעת העברה */
 }
 
 /* סגנון לתפריט הנפתח בעת הצגתו */
-.menu-button[active="true"] + .nav {
+.menu-button[active="true"]  {
   display: flex;
-  width: 20px;
-    height: 20px;
+  width: 50px;
+    height: 50px;
 }
 .user {
   
@@ -239,6 +259,10 @@ $color-site-white: #ffff;
 }
 .button {
   margin-top: 2vh
+}
+.search-form{
+  display: flex;
+  width: 100vw;
 }
   }
   
