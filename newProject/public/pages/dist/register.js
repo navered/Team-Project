@@ -60,8 +60,8 @@ function handleAddUser(ev) {
                 case 2:
                     data = _a.sent();
                     console.log(data);
-                    // go to Log in page
-                    window.location.href = "./login.html";
+                    // go to products page
+                    window.location.href = "./products.html";
                     return [3 /*break*/, 4];
                 case 3:
                     error_1 = _a.sent();

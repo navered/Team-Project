@@ -4,6 +4,7 @@ var express_1 = require("express");
 var productsCont_1 = require("./productsCont");
 var router = express_1["default"].Router();
 router
+    .get("/get-products", productsCont_1.getProducts)
     .get("/get-products-by-owner-email", productsCont_1.getProductByOwnerEmail)
     .post("/create-product", productsCont_1.createProduct)
     .post("/add-product-to-cart", productsCont_1.addProductToCart)

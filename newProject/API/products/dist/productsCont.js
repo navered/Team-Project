@@ -36,40 +36,64 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addProductToWishList = exports.addProductToCart = exports.getAllProducts = exports.deleteProduct = exports.updateProductInfo = exports.getProductByOwnerEmail = exports.createProduct = void 0;
+exports.addProductToWishList = exports.addProductToCart = exports.getAllProducts = exports.deleteProduct = exports.updateProductInfo = exports.getProductByOwnerEmail = exports.createProduct = exports.getProducts = void 0;
 var console_1 = require("console");
 var productsModel_1 = require("./productsModel");
-var usersModel_1 = require("./usersModel");
+function getProducts(req, res) {
+    return __awaiter(this, void 0, void 0, function () {
+        var productsDB, error_1;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    return [4 /*yield*/, productsModel_1["default"].find({})];
+                case 1:
+                    productsDB = _a.sent();
+                    console.log(productsDB);
+                    if (!productsDB)
+                        throw new Error("No Products");
+                    res.send({ products: productsDB });
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_1 = _a.sent();
+                    console.error(error_1);
+                    res.status(500).send({ error: error_1.message });
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
+            }
+        });
+    });
+}
+exports.getProducts = getProducts;
 function createProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, newProd, userEmail, findOwner, product, productDB, error_1;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
+        var newProd, product, productDB, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
                 case 0:
-                    _b.trys.push([0, 3, , 4]);
-                    _a = req.body, newProd = _a.newProd, userEmail = _a.userEmail;
-                    console_1.log(newProd, userEmail);
-                    return [4 /*yield*/, usersModel_1.UserModel.findOne({ email: userEmail })];
-                case 1:
-                    findOwner = _b.sent();
-                    if (!findOwner)
-                        throw new Error("Couldnt find owner");
+                    _a.trys.push([0, 2, , 3]);
+                    newProd = req.body.newProd;
+                    console_1.log(newProd);
                     product = new productsModel_1["default"]({
-                        imgUrl: newProd.imgUrl,
-                        price: newProd.price,
-                        title: newProd.title,
+                        productName: newProd.productName,
                         description: newProd.description,
-                        email: userEmail
+                        category: newProd.category,
+                        vendor: newProd.vendor,
+                        price: newProd.price,
+                        imgUrl: newProd.imgUrl
                     });
                     return [4 /*yield*/, product.save()];
+                case 1:
+                    productDB = _a.sent();
+                    // res.send({ ok: true, newProduct: productDB });
+                    res.status(201).json({ ok: true, newProduct: productDB });
+                    return [3 /*break*/, 3];
                 case 2:
-                    productDB = _b.sent();
-                    res.send({ ok: true, newProduct: productDB });
-                    return [3 /*break*/, 4];
-                case 3:
-                    error_1 = _b.sent();
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    error_2 = _a.sent();
+                    console.error("Error in createProduct:", error_2);
+                    res.status(500).json({ error: 'Internal server error' });
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     });
@@ -77,7 +101,7 @@ function createProduct(req, res) {
 exports.createProduct = createProduct;
 function getProductByOwnerEmail(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var userEmail, usersProducts, error_2;
+        var userEmail, usersProducts, error_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -94,8 +118,8 @@ function getProductByOwnerEmail(req, res) {
                     res.send({ usersProducts: usersProducts });
                     return [3 /*break*/, 3];
                 case 2:
-                    error_2 = _a.sent();
-                    console.error(error_2);
+                    error_3 = _a.sent();
+                    console.error(error_3);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
@@ -105,7 +129,7 @@ function getProductByOwnerEmail(req, res) {
 exports.getProductByOwnerEmail = getProductByOwnerEmail;
 function updateProductInfo(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, id, title, price, description, currentProduct, error_3;
+        var _a, id, title, price, description, currentProduct, error_4;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -123,8 +147,8 @@ function updateProductInfo(req, res) {
                     res.send({ ok: true });
                     return [3 /*break*/, 3];
                 case 2:
-                    error_3 = _b.sent();
-                    console.error(error_3.massage);
+                    error_4 = _b.sent();
+                    console.error(error_4.massage);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
@@ -134,7 +158,7 @@ function updateProductInfo(req, res) {
 exports.updateProductInfo = updateProductInfo;
 function deleteProduct(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var id, currentProduct, error_4;
+        var id, currentProduct, error_5;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -150,8 +174,8 @@ function deleteProduct(req, res) {
                     console_1.log("delete success");
                     return [3 /*break*/, 3];
                 case 2:
-                    error_4 = _a.sent();
-                    console.error(error_4.massage);
+                    error_5 = _a.sent();
+                    console.error(error_5.massage);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
@@ -161,7 +185,7 @@ function deleteProduct(req, res) {
 exports.deleteProduct = deleteProduct;
 function getAllProducts(req, res) {
     return __awaiter(this, void 0, void 0, function () {
-        var products, error_5;
+        var products, error_6;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -172,8 +196,8 @@ function getAllProducts(req, res) {
                     res.send({ products: products });
                     return [3 /*break*/, 3];
                 case 2:
-                    error_5 = _a.sent();
-                    console.error(error_5.massage);
+                    error_6 = _a.sent();
+                    console.error(error_6.massage);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }

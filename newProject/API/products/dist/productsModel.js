@@ -3,13 +3,12 @@ exports.__esModule = true;
 var mongoose_1 = require("mongoose");
 var Schema = mongoose_1["default"].Schema, model = mongoose_1["default"].model;
 var productSchema = new Schema({
-    imgUrl: String,
-    price: Number,
-    title: String,
+    productName: String,
     description: String,
-    email: String,
-    customersCart: [String],
-    customersWishList: [String]
+    category: String,
+    vendor: String,
+    price: Number,
+    imgUrl: String
 });
 var ProductModel = mongoose_1["default"].model("product", productSchema);
 exports["default"] = ProductModel;

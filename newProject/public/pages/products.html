@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/products.js" defer></script>
+    <link rel="stylesheet" href="./style/dist/product.css">
+</head>
+<body>
+    <a id="link" href="./myStore.html">Home Page</a>
+    <h1>Products</h1>
+    <form onsubmit="handleAddProduct(event)">
+        <input type="text" name="productName" placeholder="Product Name">
+        <input type="text" name="productDesc" placeholder="Product Description">
+        <input type="text" name="productUrl" placeholder="Product Image URL">
+        <input type="text" name="productPrice" placeholder="Product Price">
+        <select id="category" >
+            <option value="fruits">Fruits</option>
+            <option value="vegetables">Vegetables</option>
+            <option value="bulbs">Bulbs</option>
+            <option value="mushrooms">Mushrooms</option>
+            <option value="leaves">Leaves</option>
+            <option value="roots">Roots</option>
+            <option value="seeds">Seeds</option>
+            <option value="stems">Stems</option>
+          </select>
+        <input type="text" name="vendor" placeholder="Vendor">
+        <button type="submit">Add a Product</button>   
+    </form>
+    <div id="products"></div>
+</body>
+</html>

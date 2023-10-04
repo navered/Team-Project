@@ -10,7 +10,7 @@ require("dotenv/config");
 const app = express_1.default();
 const port = process.env.PORT || 3000;
 //static files
-app.use(express_1.default.static("public"));
+app.use(express_1.default.static('public'));
 app.use(cookie_parser_1.default());
 //body
 app.use(express_1.default.json());

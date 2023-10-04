@@ -2,24 +2,45 @@ import { log } from "console";
 import ProductModel from "./productsModel";
 import   {  UserModel }  from "../users/usersModel";
 
-export async function createProduct(req, res) {
+export async function getProducts(req: any, res: any) {
   try {
-    const { newProd, userEmail } = req.body;
-    log(newProd, userEmail);
-    const findOwner = await UserModel.findOne({ email: userEmail });
-    if (!findOwner) throw new Error("Couldnt find owner");
+    const productsDB = await ProductModel.find({});
+    console.log(productsDB);
+    if (!productsDB) throw new Error("No Products");
+    res.send({ products: productsDB });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+}
+
+export async function createProduct(req:any, res:any) {
+  try {
+    const { newProd } = req.body;
+    log(newProd);
+    // const findOwner = await UserModel.findOne({ email: userEmail });
+    // if (!findOwner) throw new Error("Couldnt find owner");
     const product = new ProductModel({
-      imgUrl: newProd.imgUrl,
-      price: newProd.price,
-      title: newProd.title,
+      productName: newProd.productName,
       description: newProd.description,
-      email: userEmail,
+      category: newProd.category,
+      vendor: newProd.vendor,
+      price: newProd.price,
+      imgUrl: newProd.imgUrl
     });
     const productDB = await product.save();
 
-    res.send({ ok: true, newProduct: productDB });
-  } catch (error) {}
+    // res.send({ ok: true, newProduct: productDB });
+    res.status(201).json({ ok: true, newProduct: productDB });
+  } catch (error) {
+    console.error("Error in createProduct:", error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 }
+
+
+
+
 
 export async function getProductByOwnerEmail(req, res) {
   try {

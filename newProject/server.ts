@@ -1,12 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
 import cookieParser from 'cookie-parser';
-import 'dotenv/config'
+import 'dotenv/config';
 const app = express();
 const port = process.env.PORT || 3000;
 
 //static files
-app.use(express.static("public"));
+app.use(express.static('public'));
 app.use(cookieParser())
 
 //body

@@ -16,8 +16,8 @@ async function handleAddUser(ev: any) {
     const data = await response.json();
 
     console.log(data);
-    // go to Log in page
-    window.location.href = `./login.html`;
+    // go to products page
+    window.location.href = `./products.html`;
   } catch (error) {
     console.error(error);
   }

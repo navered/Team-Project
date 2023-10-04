@@ -2,13 +2,12 @@ import mongoose from "mongoose";
 const { Schema, model } = mongoose;
 
 const productSchema = new Schema({
-  imgUrl: String,
-  price: Number,
-  title: String,
+  productName: String,
   description: String,
-  email: String,
-  customersCart: [String],
-  customersWishList: [String],
+  category:String,
+  vendor:String,
+  price: Number,
+  imgUrl: String,
 });
 
 const ProductModel = mongoose.model("product", productSchema);
