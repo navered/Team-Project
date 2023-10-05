@@ -1,11 +1,124 @@
-.storeGallery {
-  &__productDiv {
-    input {
-      border: none;
-    }
-
-    img {
-      max-width: 140px;
-    }
+$font-family: 'Assistant', sans-serif;
+$font-size-heading: 3em;
+$font-size-sub-heading: 2.3em;
+$font-size-big-heading:2.2em;
+$font-size-text: 1.0em;
+$color-site-yellow: #FFD830;
+$color-site-black:#096A2E ;
+$color-site-light-green: #B3D489;
+* {
+    margin: 0;
+    padding: 0;
   }
-}
+ 
+.slideshow-container {
+    max-width:100vw;
+    position: relative;
+    margin: auto;
+  }
+  .img_slider{
+    width: 100vw;
+    height: 70vh;
+  }
+  
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 25%;
+    width: auto;
+    padding: 16px;
+    margin-top: 20px;
+    color: $color-site-light-green;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 100px ;
+    user-select: auto;
+    background-color: $color-site-black;
+    padding: 4.5px 13.5px;
+    margin: 0px 10px 0px 10px;
+  }
+  .next {
+    position: absolute;
+    right: 0;
+    top: 60%;
+    transform: translateY(-50%) rotate(180deg); /* הפוך את החץ לחץ ימינה */
+    cursor: pointer;
+    /* הסגנון הנוסף של החץ */
+  }
+  
+  /* סגנון לחץ שמאלה */
+  .prev {
+    position: absolute;
+    left: 0;
+    top: 60%;
+    transform: translateY(-50%) rotate(180deg); /* הפוך את החץ לחץ שמאלה */
+    cursor: pointer;
+    /* הסגנון הנוסף של החץ */
+  }
+  
+
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: $color-site-light-green;
+    color: $color-site-black;
+
+  }
+  
+  /* Caption text */
+  .text {
+    color: #000000;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #000000;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: $color-site-light-green;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color:$color-site-black;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards; /* תוסיף את זה כדי לשמור על הערך האחרון באנימציה */
+  }
+  
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+  }
+
+

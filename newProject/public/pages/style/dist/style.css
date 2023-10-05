@@ -4,24 +4,11 @@
   padding: 0;
 }
 
-.h1 {
-  font-family: "Assistant", sans-serif;
-  font-size: 3em;
-  color: #1e3e20;
-  text-align: center;
-}
-
-.h2, p {
-  font-family: "Assistant", sans-serif;
-  font-size: 2.3em;
-  color: #1e3e20;
-  text-align: center;
-  font-weight: 600;
-  margin: 20px 0px;
-}
-
-.p {
-  font-size: 1em;
+.header1 {
+  background-color: #B3D489;
+  border-bottom: 1px solid #096A2E;
+  height: 5vh;
+  align-content: center;
 }
 
 .allheader {
@@ -36,12 +23,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 99vw;
+  max-width: 100vw;
   height: 14vh;
 }
 
 .logo {
-  width: 130px;
+  width: 150px;
   height: 14vh;
   padding: 20px;
 }
@@ -52,18 +39,21 @@
   align-items: center;
 }
 
+.gap {
+  width: 53vw;
+}
+
 .nav a {
-  color: #1e3e20;
+  color: #096A2E;
   text-decoration: none;
-  margin: 0 10px;
-  padding-left: 15px;
-  font-weight: 600;
-  font-size: 1em;
+  padding: 0px 10px;
+  font-weight: 400;
+  font-size: 1.2em;
 }
 
 .nav a:hover {
-  color: #1e3e20;
-  text-decoration: underline solid 1px #1e3e20;
+  color: #096A2E;
+  text-decoration: underline solid 1px #096A2E;
 }
 
 .user {
@@ -87,22 +77,22 @@
 .popup ul {
   text-align: right;
   padding: 15px 30px;
-  border: 1px solid #1e3e20;
+  border: 1px solid #096A2E;
 }
 
 .popup li {
   margin-bottom: 10px;
-  border-bottom: 1px solid #1e3e20;
+  border-bottom: 1px solid #096A2E;
 }
 
 .popup a:hover {
-  color: #1e3e20;
+  color: #096A2E;
 }
 
 .popup a {
-  color: #1e3e20;
+  color: #096A2E;
   text-decoration: none;
-  color: #1e3e20;
+  color: #096A2E;
   font-family: "Assistant", sans-serif;
   text-align: center;
   font-size: 22px;
@@ -124,7 +114,7 @@
   margin-left: 5px;
   border: none;
   border-radius: 100px;
-  background-color: #eedb14;
+  background-color: #FFD830;
 }
 
 @media (max-width: 767px) {
@@ -165,7 +155,7 @@
   .nav {
     display: none;
     flex-direction: column;
-    background-color: #eedb14;
+    background-color: #FFD830;
     /* צבע רקע תפריט נפתח */
     position: absolute;
     top: 50px;
@@ -185,7 +175,7 @@
 
   /* סגנון לקישורי התפריט בתפריט הנפתח בעת העברה */
   .nav a:hover {
-    background-color: #c1b10e;
+    background-color: #fccd00;
     /* צבע רקע קישורי התפריט בעת העברה */
   }
 
@@ -205,21 +195,6 @@
   .userMenu {
     width: 20px;
     height: 20px;
-  }
-
-  .h1 {
-    font-size: 2em;
-    margin: -68vh 120px 0px 0px;
-    text-align: right;
-  }
-
-  .h2, p {
-    font-family: "Assistant", sans-serif;
-    font-size: 1.3em;
-    color: #000000;
-    text-align: right;
-    font-weight: 500;
-    margin: 0vh 125px 0px 20px;
   }
 
   .btns {

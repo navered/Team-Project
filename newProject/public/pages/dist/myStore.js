@@ -1,11 +1,3 @@
-// class Product {
-//   constructor(
-//     public imgUrl: string,
-//     public price: number,
-//     public title: string,
-//     public description: string,
-//   ) {}
-// }
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -42,6 +34,49 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var slideIndex = 1;
+var autoSlide = false; // אפשר להשאיר את זה ב- false בתחילה
+showSlides(slideIndex);
+function plusSlides(n) {
+    showSlides((slideIndex += n));
+    autoSlide = false; // לאחר לחיצה על חץ, משנה ל- false כך שההחלפה האוטומטית תתבטל
+}
+function currentSlide(n) {
+    showSlides((slideIndex = n));
+    autoSlide = false; // לאחר לחיצה על נקודה, משנה ל- false כך שההחלפה האוטומטית תתבטל
+}
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+    if (autoSlide) {
+        setTimeout(function () {
+            plusSlides(1);
+        }, 2000);
+    }
+}
+// class Product {
+//   constructor(
+//     public imgUrl: string,
+//     public price: number,
+//     public title: string,
+//     public description: string,
+//   ) {}
+// }
 // async function handleAddProduct(event) {
 //   try {
 //     event.preventDefault();

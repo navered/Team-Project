@@ -1,3 +1,6 @@
+
+    
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,15 +12,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="./pages/style/dist/style.css" />
-    <link rel="stylesheet" href="./pages/style/dist/navStyle.css" />
+    <link rel="stylesheet" href="./style/dist/navStyle.css" />
     <link rel="stylesheet" href="./pages/style/dist/styleIndex.css" />
 
     <script src="./dist/index.js" defer></script>
 
     <title>index_market_place</title>
   </head>
-  <body dir="rtl" onload="getFid()">
-    <div class="header">
+  <body dir="rtl" >
+  
+    <!-- <div class="header">
       <img class="logo" src="./src/download.png">
       <img class="menu-button" src="./imgs/more.svg" active="false" onclick="toggleMenu()">
       <nav class="nav" id="nav">
@@ -52,40 +56,94 @@
     </div>
   
     <div class="popup" id="popup">
+    </div> -->
+    <div class="row">
+   
+      <div class="columna">
+          </div>
+    
+      <div class="column1">
+          <img src="./src/banner_indexPage.png" class="hero" alt="">
+      </div>
+      <div class="column1mobile">
+        <img src="./src/banner_indexPage.png" class="heromobile" alt="">
     </div>
-    <div class="slideshow-container">
+      
+    </div>
+      </div>
+      <section dir="rtl" class="about-us" id="about-us">
+        <div class="container">
+          <div class="content-wrapper">
+            <div class="text">
+              <h2>קצת על האתר </h2>
+              <p> פלטפורמה מתקדמת המבטיחה חיבור חלק ויעיל<br> בין ספקי ירקות טריים ובין לקוחות שמחפשים מקורות איכותיים ומהימנים לירקות. </p>
+              <p> האתר מציע פתרון אמין למבצעים בגדלים שונים,<br> החל מעסקי קטנים ועד לארגונים גדולים.<br> עם כלי מתקדם לניהול הזמנות, אפשרויות תשלום מאובטחות,<br> ותמיכה מקצועית מהצוות שלנו, האתר מייעץ ומבטיח את הגעת הירקות הטריים ביותר מהשדה לשולחן של הלקוח.</p>
+              <p>ניתן להוסיף מספר קטגוריות כגון מזון, בילויים, חשבונות ועוד ולעקוב אחר ההוצאות וההכנסות בצורה ממוקדת ונוחה.</p>
 
-      <div class="mySlides fade">
-        <div class="numbertext">1 / 3</div>
-        <img src="src/reusable-shopping-bags-with-organic-eco-vegetables-4JFRQRP-1.jpg" class="img_slider">
-        <div class="text">Caption Text</div>
+              <a href="../register/register.html" class="start-button"> להרשמה > </a>
+            </div>
+            <div class="image">
+              <img src="./src/OJZ2HZ0-removebg-preview.png" alt="Our Image">
+            </div>
+          </div>
+        </div>
+      </section>
+  
+     <section dir="rtl" class="core-values">
+    <div class="container">
+      <h2 class="title">איך אנחנו יכולים לעזור לך?</h2>
+      <hr class="separator" color="#FEC94E;">
+      <div class="values">
+        <div class="value">
+          <img src="money.svg" class="value_icon" alt="">
+          <h3>ניהול כספים יעיל</h3>
+          <p>ניהול תקציבים, חשבוניות ודוחות בצורה יעילה ונוחה.</p>
+        </div>
+        <div class="value">
+          <img src="cost.svg" class="value_icon" alt="">
+          <h3>שליטה מוחלטת</h3>
+          <p>שליטה מוחלטת על ההוצאות וההכנסות שלך בצורה ידידותית ומותאמת אישית.</p>
+        </div>
+        <div class="value">
+          <img src="data-backup.svg" class="value_icon" alt="">
+          <h3>סנכרון מרכזי</h3>
+          <p>סנכרון אוטומטי של הנתונים בין מכשירים, שתוכל להיות מעודכן תמיד.</p>
+        </div>
+        <div class="value">
+          <img src="report.svg" class="value_icon" alt="">
+          <h3>דיווח מדויק</h3>
+          <p>דיווח מדויק ובזמן על היתרה, הוצאות, הכנסות ושאר מידע כספי חשוב.</p>
+        </div>
       </div>
-      
-      <div class="mySlides fade">
-        <div class="numbertext">2 / 3</div>
-        <img src="src/organic-farmer-checking-his-tomatoes-in-a-hothouse-VQV2RVE.png" class="img_slider">
-        <div class="text">Caption Two</div>
+    </div>
+    <a href="../register/register.html" class="start-button "> להרשמה > </a>
+  </section>
+  <div dir="rtl" class="contact" id="contact">
+    <h1 class="heading">     רוצים שנציג יצור אתכם קשר?</h1> 
+    <p class="contact_p"> מלאו את הטופס כאן למטה ונחזור אליכם בהקדם</p>
+      <div class="contactUs"> 
+        <form dir="rtl" class="form" id="login-form">
+          <input type="text" id="input" placeholder="שם מלא" required>
+          <input type="tel" id="input" placeholder="טלפון" required>
+          <input type="email" id="input" placeholder="איימיל" required>
+          <button type="submit" class="submit">שליחה</button>
       </div>
-      
-      <div class="mySlides fade">
-        <div class="numbertext">3 / 3</div>
-        <img src="src/pexels-yaroslav-shuraev-8844888.jpg" class="img_slider">
-        <div class="text">Caption Three</div>
-      </div>
-      
-      <a class="prev" onclick="plusSlides(-1)">❮</a>
-      <a class="next" onclick="plusSlides(1)">❯</a>
-      
-      </div>
-      <br>
-      
-      <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span> 
-        <span class="dot" onclick="currentSlide(2)"></span> 
-        <span class="dot" onclick="currentSlide(3)"></span> 
-
+    </div>
+        <form class="myForm" onsubmit="handleAddProduct(event)">
+          <input type="url" name="imgUrl" placeholder="img-url" />
+          <input type="number" name="price" placeholder="price" />
+          <input type="text" name="title" placeholder="title" />
+          <input type="text" name="description" placeholder="description..." />
+          <button type="submit">add product to sale</button>
+        </form>
+    
+        <button type="button" onclick="renderMyStore()">get by user</button>
+    
+        <div class="storeGallery">
+          <div class="storeGallery__productDiv"></div>
     <div class="wrapper">
       <div class="fid"></div>
+
     </div>
   </body>
 </html>

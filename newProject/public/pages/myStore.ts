@@ -1,3 +1,46 @@
+let slideIndex: number = 1;
+let autoSlide: boolean = false; // אפשר להשאיר את זה ב- false בתחילה
+showSlides(slideIndex);
+
+function plusSlides(n: number): void {
+  showSlides((slideIndex += n));
+  autoSlide = false; // לאחר לחיצה על חץ, משנה ל- false כך שההחלפה האוטומטית תתבטל
+}
+
+function currentSlide(n: number): void {
+  showSlides((slideIndex = n));
+  autoSlide = false; // לאחר לחיצה על נקודה, משנה ל- false כך שההחלפה האוטומטית תתבטל
+}
+
+function showSlides(n: number): void {
+  let i: number;
+  let slides: HTMLCollectionOf<Element> = document.getElementsByClassName(
+    "mySlides"
+  );
+  let dots: HTMLCollectionOf<Element> = document.getElementsByClassName("dot");
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    (slides[i] as HTMLElement).style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  (slides[slideIndex - 1] as HTMLElement).style.display = "block";
+  dots[slideIndex - 1].className += " active";
+
+  if (autoSlide) {
+    setTimeout(() => {
+      plusSlides(1);
+    }, 2000);
+  }
+}
+
+
 // class Product {
 //   constructor(
 //     public imgUrl: string,
@@ -136,6 +179,7 @@
 // function goHomePage() {
 //   window.location.href = "../index.html";
 // }
+
 async function handleGetUser() {
   try {
       //ask server to get the user
