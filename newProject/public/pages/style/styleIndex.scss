@@ -25,7 +25,7 @@ $color-site-light-green: #B3D489;
 .container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 35px 20px;
 }
 
 .content-wrapper {
@@ -53,25 +53,37 @@ h2 {
   font-weight: 700;
   margin-bottom: 20px;
   color: $color-site-black;
-  text-align: right;
+  text-align: center;
 }
-
+.separator{
+  width: 80px;
+    height: 2px;
+    background-color: $color-site-black;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
 p {
   font-size: 1.1em;
   font-weight: 600;
   line-height: 1.5;
   margin-bottom: 10px;
   color: $color-site-black;
+  font-family: $font-family;
 }
 
 img {
   max-width: 100%;
 }
-
+.warpper{
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
 .start-button  {
+  text-align:center;
   font-size: 18px;
   padding: 10px 70px;
-  margin: 20px 0px;
+  margin: 10px 0vw ;
   background-color: $color-site-light-green;
   color:$color-site-black;
   border: solid 2px $color-site-yellow;
@@ -85,11 +97,42 @@ img {
 .column1mobile{
  display: none;   
 }
+
+.values {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.value {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.value_icon{
+  width: 80px;
+  height: 80px;
+ }
+.h3{
+  font-size: 1.2em;
+  color:$color-site-light-green;
+  font-family: $font-family;
+  font-weight: 800;
+}
 @media (max-width: 767px){
 
   .column1mobile{
-    display: none;   
+    display: block;
 
+  }
+  .hero{
+    display: none;
+   
+
+  }
+  .heromobile{
+    height: 70vh;
+    width: 100vw;
+    padding-right: 0.5em;
   }
 .content-wrapper {
 flex-direction: column-reverse;
@@ -109,6 +152,9 @@ flex-direction: column-reverse;
 .h2 {
   margin-right: 5vw;}
   .text{
-    margin:0vw 5vw;
+    margin:0vw 10vw 5vw 5vw;
+  }
+  .start-button{
+    margin-bottom: 5vh;
   }
 }

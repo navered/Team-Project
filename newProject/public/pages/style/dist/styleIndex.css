@@ -17,7 +17,7 @@
 .container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 35px 20px;
 }
 
 .content-wrapper {
@@ -46,7 +46,15 @@ h2 {
   font-weight: 700;
   margin-bottom: 20px;
   color: #096A2E;
-  text-align: right;
+  text-align: center;
+}
+
+.separator {
+  width: 80px;
+  height: 2px;
+  background-color: #096A2E;
+  margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 p {
@@ -55,16 +63,24 @@ p {
   line-height: 1.5;
   margin-bottom: 10px;
   color: #096A2E;
+  font-family: "Assistant", sans-serif;
 }
 
 img {
   max-width: 100%;
 }
 
+.warpper {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
 .start-button {
+  text-align: center;
   font-size: 18px;
   padding: 10px 70px;
-  margin: 20px 0px;
+  margin: 10px 0vw;
   background-color: #B3D489;
   color: #096A2E;
   border: solid 2px #FFD830;
@@ -79,9 +95,42 @@ img {
   display: none;
 }
 
+.values {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.value {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.value_icon {
+  width: 80px;
+  height: 80px;
+}
+
+.h3 {
+  font-size: 1.2em;
+  color: #B3D489;
+  font-family: "Assistant", sans-serif;
+  font-weight: 800;
+}
+
 @media (max-width: 767px) {
   .column1mobile {
+    display: block;
+  }
+
+  .hero {
     display: none;
+  }
+
+  .heromobile {
+    height: 70vh;
+    width: 100vw;
+    padding-right: 0.5em;
   }
 
   .content-wrapper {
@@ -107,6 +156,10 @@ img {
   }
 
   .text {
-    margin: 0vw 5vw;
+    margin: 0vw 10vw 5vw 5vw;
+  }
+
+  .start-button {
+    margin-bottom: 5vh;
   }
 }
